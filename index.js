@@ -26,12 +26,13 @@ function renderBox() {
   let box = document.createElement('div')
   let boxSize = getRandom(30, 100)
   let gameSize = $game.getBoundingClientRect()
-
-
+  let boxColor = `${getRandom(1, 255)}, ${getRandom(1, 255)}, ${getRandom(1, 255)}`
+console.log(boxColor)
 
   box.style.height = box.style.width = boxSize + 'px'
   box.style.position = 'absolute'
-  box.style.backgroundColor = '#000'
+  box.style.backgroundColor = `rgb(${boxColor})`
+  console.log(box.style.backgroundColor)
   box.style.top = getRandom(0, (gameSize.height - boxSize)) + 'px'
   box.style.left = getRandom(0, (gameSize.width - boxSize)) + 'px'
   box.style.cursor = 'pointer'
