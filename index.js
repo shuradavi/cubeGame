@@ -24,14 +24,19 @@ function handleBoxClick(event) {
 function renderBox() {
   $game.innerHTML = ''
   let box = document.createElement('div')
-
-  box.style.width = box.style.height = '30px'
+  let boxSize = getRandom(30, 100)
+  let gameSize = $game.getBoundingClientRect()
+  box.style.width = box.style.height = boxSize + 'px'
   box.style.backgroundColor = '#000'
-  box.style.top = '50px';
-  box.style.left = '70px';
+  box.style.top = getRandom(0, (gameSize.height - boxSize))
+  box.style.left = getRandom(0, (gameSize.width - boxSize))
   box.style.cursor = 'pointer'
   box.setAttribute('data-box', 'true')
 
   $game.insertAdjacentElement('afterbegin', box)
 
+}
+
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min) + min)
 }
