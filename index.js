@@ -1,18 +1,18 @@
-
-
-let $game = document.querySelector('#game')
 let $start = document.querySelector('#start')
+let $game = document.querySelector('#game')
 
 let score = 0;
 
+$start.addEventListener('click', startGame)
 $game.addEventListener('click', handleBoxClick)
-$start.addEventListener('click', function () {
 
+
+function startGame() {
   $start.classList.add('hide')
   $game.style.backgroundColor = '#fff'
 
   renderBox()
-})
+}
 
 function handleBoxClick(event) {
   if (event.target.dataset.box) {
@@ -26,10 +26,14 @@ function renderBox() {
   let box = document.createElement('div')
   let boxSize = getRandom(30, 100)
   let gameSize = $game.getBoundingClientRect()
-  box.style.width = box.style.height = boxSize + 'px'
+
+
+
+  box.style.height = box.style.width = boxSize + 'px'
+  box.style.position = 'absolute'
   box.style.backgroundColor = '#000'
-  box.style.top = getRandom(0, (gameSize.height - boxSize))
-  box.style.left = getRandom(0, (gameSize.width - boxSize))
+  box.style.top = getRandom(0, (gameSize.height - boxSize)) + 'px'
+  box.style.left = getRandom(0, (gameSize.width - boxSize)) + 'px'
   box.style.cursor = 'pointer'
   box.setAttribute('data-box', 'true')
 
