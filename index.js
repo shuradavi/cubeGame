@@ -1,9 +1,8 @@
 
 
-
-
 let $game = document.querySelector('#game')
 let $start = document.querySelector('#start')
+
 let score = 0;
 
 $game.addEventListener('click', handleBoxClick)
